@@ -11,7 +11,7 @@ var includeNumbers = prompt;
 function writePassword() {
   // var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  var password = "";
   //Char length 
   var lengthCorrect = false;
   var passwordLength = 8;
@@ -125,12 +125,12 @@ function writePassword() {
   } 
 
   for (var i = 0; i <= passwordLength; i++) {
-    var randomNumber = Math.floor(Math.random() * charString.length);
+    var randomNumber = Math.floor(Math.random() * charString.length -1);
     password += charString.substring(randomNumber, randomNumber +1);
   }
   
   console.log(password);
-  
+
   document.getElementById("password").value = password;
   
 
@@ -139,7 +139,7 @@ function writePassword() {
 
 
 
-  passwordText.value = password;
+  passwordText = password;
 
 }
 
