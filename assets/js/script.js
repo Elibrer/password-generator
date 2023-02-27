@@ -24,10 +24,6 @@ function writePassword() {
   var numeric = false;
   var special = false;
 
-  var chars = [];
-  // var allChars = ["abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "1234567890",  "!@#$%^&*"];
-
-  var charString = "";
   var lowercaseChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var uppercaseChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var numericChars = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
@@ -37,7 +33,7 @@ function writePassword() {
   //Char length loop
   while (lengthCorrect === true) {
     var passwordLength = prompt("How many characters would you like? (min 8, max 128)", passwordLength);
-    console.log(passwordLength);
+    console.log("Password Length: " + passwordLength);
     
 
 
@@ -166,119 +162,52 @@ function writePassword() {
     }
   }
 
-//WORKING CODE
-
-  // if (lowercase === true) {
-  //   chars += allChars;
-  // }
-
-  // if (uppercase === true) {
-  //   chars += allChars;  
-  // }
-
-  // if (numeric === true) {
-  //   chars += allChars;
-  // }
-
-  // if (special === true) {
-  //   chars += allChars;
-  // } 
-
   var allCharsOther = []; 
-  var randomLower = "";
+  var guaranteedCharsNumber = 0;
 
   // Password generation 
+
   if (lowercase === true) {
-    randomLower
+    var randomLower = lowercaseChars[Math.floor(Math.random() * lowercaseChars.length)];
+    console.log(randomLower);
+    password += randomLower;
+    guaranteedCharsNumber++;
     allCharsOther = allCharsOther.concat(lowercaseChars);
   }
 
   if (uppercase === true) {
-    allCharsOther = allCharsOther.concat(uppercaseChars);
+    var randomUpper = uppercaseChars[Math.floor(Math.random() * uppercaseChars.length)];
+    console.log(randomUpper);
+    password += randomUpper;
+    guaranteedCharsNumber++;
+    allCharsOther = allCharsOther.concat(uppercaseChars);  
   }
 
   if (numeric === true) {
+    var randomNumeric = numericChars[Math.floor(Math.random() * numericChars.length)];
+    console.log(randomNumeric);
+    password += randomNumeric;
+    guaranteedCharsNumber++;
     allCharsOther = allCharsOther.concat(numericChars);
   }
 
   if (special === true) {
+    var randomSpecial = specialChars[Math.floor(Math.random() * specialChars.length)];
+    console.log(randomSpecial);
+    password += randomSpecial;
+    guaranteedCharsNumber++;
     allCharsOther = allCharsOther.concat(specialChars);
   }
 
-  // var allChars = chars.join("");
+  console.log("List of all chosen characters: " + allCharsOther);
 
-  console.log(allCharsOther);
-
-
-
-  for (var i = 0; i < passwordLength; i++) {
+  for (var i = 0; i < passwordLength - guaranteedCharsNumber; i++) {
     
     password += allCharsOther[(Math.floor(Math.random() * allCharsOther.length))];
-
-    console.log(password);
   }
-
-
-
-  // for (var i = 0; i < passwordLength; i++) {
-  //   var randomNumber = Math.floor(Math.random() * chars.length);
-  //   password += chars.substring(randomNumber, randomNumber +1);
-  //   console.log(password);
-  // }
-
-
-
-
-
-
 
   document.getElementById("password").value = password;
   passwordText = password;
-
 }
 
-
-// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
-
-
-
-
-
-{
- // if (uppercase === false && lowercase === true && numeric === false && special === false) {
-  //   charString = "abcdefghijklmnopqrstuvwxyz";
-  // } else if (uppercase === true && lowercase === true && numeric === false && special === false) {
-  //   charString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  // } else if (uppercase === true && lowercase === true && numeric === true && special === false) {
-  //   charString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-  // } else if (uppercase === true && lowercase === true && numeric === false && special === true) {
-  //   charString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*";
-  // } else if (uppercase === false && lowercase === true && numeric === true && special === false) {
-  //   charString = "abcdefghijklmnopqrstuvwxyz1234567890";
-  // } else if (uppercase === false && lowercase === true && numeric === false && special === true) {
-  //   charString = "abcdefghijklmnopqrstuvwxyz!@#$%^&*";
-  // } else if (uppercase === false && lowercase === true && numeric === true && special === true) {
-  //   charString = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*";
-  // } else if (uppercase === true && lowercase === false && numeric === false && special === false) {
-  //   charString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  // } else if (uppercase === true && lowercase === false && numeric === true && special === false) {
-  //   charString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-  // } else if (uppercase === true && lowercase === false && numeric === true && special === true) {
-  //   charString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*";
-  // } else if (uppercase === true && lowercase === false && numeric === false && special === true) {
-  //   charString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*";
-  // } else if (uppercase === false && lowercase === false && numeric === true && special === false) {
-  //   charString = "1234567890";
-  // } else if (uppercase === false && lowercase === false && numeric === true && special === true) {
-  //   charString = "1234567890!@#$%^&*";
-  // } else if (uppercase === false && lowercase === false && numeric === false && special === true) {
-  //   charString = "!@#$%^&*";
-  // } else if (uppercase === true && lowercase === true && numeric === true && special === true) {
-  //   charString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*";
-  // }
-}
