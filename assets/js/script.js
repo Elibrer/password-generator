@@ -24,14 +24,14 @@ function writePassword() {
   var numeric = false;
   var special = false;
 
-  var chars = "";
-  var allChars = ["abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "1234567890",  "!@#$%^&*"];
+  var chars = [];
+  // var allChars = ["abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "1234567890",  "!@#$%^&*"];
 
-  // var charString = "";
-  // var lowercaseChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  // var uppercaseChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  // var numberChars = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-  // var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*"];
+  var charString = "";
+  var lowercaseChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  var uppercaseChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  var numericChars = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+  var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*"];
   
   
   //Char length loop
@@ -166,33 +166,68 @@ function writePassword() {
     }
   }
 
-  //Password generation 
+//WORKING CODE
+
+  // if (lowercase === true) {
+  //   chars += allChars;
+  // }
+
+  // if (uppercase === true) {
+  //   chars += allChars;  
+  // }
+
+  // if (numeric === true) {
+  //   chars += allChars;
+  // }
+
+  // if (special === true) {
+  //   chars += allChars;
+  // } 
+
+  var allCharsOther = []; 
+  var randomLower = "";
+
+  // Password generation 
   if (lowercase === true) {
-    chars += allChars[0];
-    
+    randomLower
+    allCharsOther = allCharsOther.concat(lowercaseChars);
   }
 
   if (uppercase === true) {
-    chars += allChars[1];
+    allCharsOther = allCharsOther.concat(uppercaseChars);
   }
 
   if (numeric === true) {
-    chars += allChars[2];
+    allCharsOther = allCharsOther.concat(numericChars);
   }
 
   if (special === true) {
-    chars += allChars[3];
+    allCharsOther = allCharsOther.concat(specialChars);
   }
 
-  console.log(chars);
+  // var allChars = chars.join("");
 
- 
+  console.log(allCharsOther);
+
+
 
   for (var i = 0; i < passwordLength; i++) {
-    var randomNumber = Math.floor(Math.random() * chars.length);
-    password += chars.substring(randomNumber, randomNumber +1);
+    
+    password += allCharsOther[(Math.floor(Math.random() * allCharsOther.length))];
+
     console.log(password);
   }
+
+
+
+  // for (var i = 0; i < passwordLength; i++) {
+  //   var randomNumber = Math.floor(Math.random() * chars.length);
+  //   password += chars.substring(randomNumber, randomNumber +1);
+  //   console.log(password);
+  // }
+
+
+
 
 
 
