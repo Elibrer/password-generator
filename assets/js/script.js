@@ -38,10 +38,7 @@ function writePassword() {
   while (lengthCorrect === true) {
     var passwordLength = prompt("How many characters would you like? (min 8, max 128)", passwordLength);
     console.log(passwordLength);
-    if (passwordLength === null) {
-      alert("Generate tool terminated.");
-      return;
-    }
+    
 
 
     if (passwordLength <= 7 || passwordLength >= 129) {
@@ -50,18 +47,14 @@ function writePassword() {
     } else if (passwordLength >= 8 && passwordLength <= 128) {
       alert("Password length set to: " + passwordLength);
       lengthCorrect = false;
+    } else if (passwordLength === null) {
+      alert("Generate tool terminated.");
+      return;
     } else {
       alert("Please enter a valid number.");
     }
 
   }
-
-
-  // else if (passwordLength === null) {
-  //   alert("Generate tool terminated.");
-  //   return;
-  // }  
-
 
   //Char Types loop
   while (charTypes === false) {
@@ -70,6 +63,10 @@ function writePassword() {
 
     while (charLoop === true) {
       var promptYN = prompt("Would you like to include uppercase letters? Y/N");
+
+     
+
+      promptYN = promptYN.toUpperCase();
 
       if (promptYN === "Y") {
         alert("Uppercase letters will be included.");
@@ -91,14 +88,15 @@ function writePassword() {
     charLoop = true;
 
     while (charLoop === true) {
-      promptYN = prompt("Would you like to include lowercase letters? Y/N");
-      
-      console.log(promptYN);
+      var promptYN = prompt("Would you like to include lowercase letters? Y/N");
+
+      promptYN = promptYN.toUpperCase();
+
       if (promptYN === "Y") {
         alert("Lowercase letters will be included.");
         lowercase = true;
         charLoop = false;
-      } else if (promptYN = "N") {
+      } else if (promptYN === "N") {
         alert("Lowercase letters will not be included.");
         lowercase = false;
         charLoop = false;
@@ -114,13 +112,15 @@ function writePassword() {
     charLoop = true;
 
     while (charLoop === true) {
-      promptYN = prompt("Would you like to include numeric characters? Y/N");
+      var promptYN = prompt("Would you like to include numeric characters? Y/N");
+
+      promptYN = promptYN.toUpperCase();
 
       if (promptYN === "Y") {
         alert("Numeric characters will be included.");
         numeric = true;
         charLoop = false;
-      } else if (promptYN = "N") {
+      } else if (promptYN === "N") {
         alert("Numeric characters will not be included.");
         numeric = false;
         charLoop = false;
@@ -136,13 +136,15 @@ function writePassword() {
     charLoop = true;
 
     while (charLoop === true) {
-      promptYN = prompt("Would you like to include special characters? Y/N");
+      var promptYN = prompt("Would you like to include special characters? Y/N");
+
+      promptYN = promptYN.toUpperCase();
 
       if (promptYN === "Y") {
         alert("Special characters will be included.");
         special = true;
         charLoop = false;
-      } else if (promptYN = "N") {
+      } else if (promptYN === "N") {
         alert("Special characters will not be included.");
         special = false;
         charLoop = false;
@@ -164,29 +166,56 @@ function writePassword() {
     }
   }
 
-
-
   //Password generation 
-
   if (lowercase === true) {
-    chars = chars + allChars[0];
+    chars += allChars[0];
+    
   }
 
   if (uppercase === true) {
-    chars = chars + allChars[1];
+    chars += allChars[1];
   }
 
   if (numeric === true) {
-    chars = chars + allChars[2];
+    chars += allChars[2];
   }
 
   if (special === true) {
-    chars = chars + allChars[3];
+    chars += allChars[3];
   }
 
   console.log(chars);
 
-  // if (uppercase === false && lowercase === true && numeric === false && special === false) {
+ 
+
+  for (var i = 0; i < passwordLength; i++) {
+    var randomNumber = Math.floor(Math.random() * chars.length);
+    password += chars.substring(randomNumber, randomNumber +1);
+    console.log(password);
+  }
+
+
+
+
+  document.getElementById("password").value = password;
+  passwordText = password;
+
+}
+
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+
+
+
+
+
+
+
+
+{
+ // if (uppercase === false && lowercase === true && numeric === false && special === false) {
   //   charString = "abcdefghijklmnopqrstuvwxyz";
   // } else if (uppercase === true && lowercase === true && numeric === false && special === false) {
   //   charString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -217,21 +246,4 @@ function writePassword() {
   // } else if (uppercase === true && lowercase === true && numeric === true && special === true) {
   //   charString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*";
   // }
-  
-
-  for (var i = 0; i <= passwordLength; i++) {
-    var randomNumber = Math.floor(Math.random() * chars.length);
-    password += chars.substring(randomNumber, randomNumber +1);
-  }
-  
-
-  document.getElementById("password").value = password;
-
-  passwordText = password;
-
 }
-
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
