@@ -35,7 +35,7 @@ function writePassword() {
   //Var for ensuring one of each char type is included in final password
   var guaranteedCharsNumber = 0;
   
-  //Char length loop
+  //Char length loop ------------------------------------------------------------------------------>
   while (lengthCorrect === true) {
     var passwordLength = prompt("How many characters would you like? (min 8, max 128)", passwordLength);
     console.log("Password Length: " + passwordLength);
@@ -55,7 +55,7 @@ function writePassword() {
 
   }
 
-  //Char Types loop
+  //Char Types loop ------------------------------------------------------------------------------->
   while (charTypes === false) {
 
     var charLoop = true;
@@ -167,7 +167,7 @@ function writePassword() {
     }
   }
 
-  // Password generation 
+  // Password generation -------------------------------------------------------------------------->
 
   if (lowercase === true) {
     var randomLower = lowercaseChars[Math.floor(Math.random() * lowercaseChars.length)];
@@ -203,19 +203,19 @@ function writePassword() {
 
   console.log("List of all chosen characters: " + allChars);
 
-  //Adding more characters until passwordLength is satisfied
+  //Adding more characters until passwordLength is satisfied -------------------------------------->
   for (var i = 0; i < passwordLength - guaranteedCharsNumber; i++) {
     passwordArr.push(allChars[Math.floor(Math.random() * allChars.length)]);
   }
 
-  //Shuffles passwordArr elements
+  //Shuffles passwordArr elements ----------------------------------------------------------------->
   function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
   }
 
   shuffle(passwordArr);
 
-  //Converts shuffled array into a string, while adding it to the final password variable
+  //Converts shuffled array into a string, while adding it to the final password variable --------->
   password += passwordArr.join("");
 
   document.getElementById("password").value = password;
