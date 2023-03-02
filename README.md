@@ -1,5 +1,5 @@
-# Elijah Brereton Portfolio
-Elijah Brereton's Academic and Professional Portfolio.
+# Random Password Generator
+An application to generate a random password.
 
 ![Languages Badge](https://img.shields.io/badge/Languages-3-blue)
 ![JS Badge](https://img.shields.io/badge/JavaScript-67.3%25-yellow)
