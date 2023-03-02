@@ -1,13 +1,15 @@
 # Elijah Brereton Portfolio
 Elijah Brereton's Academic and Professional Portfolio.
 
-![Languages Badge](https://img.shields.io/badge/Languages-2-blue)
-![HTML Badge](https://img.shields.io/badge/HTML-38.6%25-red)
-![CSS Badge](https://img.shields.io/badge/CSS-61.4%25-blueviolet)
+![Languages Badge](https://img.shields.io/badge/Languages-3-blue)
+![JS Badge](https://img.shields.io/badge/JavaScript-67.3%25-yellow)
+![CSS Badge](https://img.shields.io/badge/CSS-22.7%25-blueviolet)
+![HTML Badge](https://img.shields.io/badge/HTML-10%25-red)
+
 
 ## Deployment link
 
-
+https://elibrer.github.io/password-generator
 
 ## Description
 
@@ -30,6 +32,7 @@ The password generator shows off the skills I have gained in Javascript so far, 
 - When a user has selected the length, four options for 'uppercase', 'lowercase', 'numeric', and 'special' characters are shown. The user may choose any or all if they'd like.
 - If no character types are selected, a prompt will appear informing the users that they cannot continue until at least one type is selected, and return them to the first option.
 - Once any of the character types has been selected, the program will then generate a password that includes at LEAST one of the chosen character types, at the length chosen, and randomised in the final display so that the character types aren't in the same order every time.
+- If the cancel button is pressed at any point during the applications use, the program will be terminated.
 
 ## Usage
 
