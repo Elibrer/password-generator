@@ -22,7 +22,7 @@ The password generator shows off the skills I have gained in Javascript so far, 
 - [Features](#features)
 - [Usage](#usage)
 - [Languages Used](#languages-used)
-- [Home Page Preview](#full-preview)
+- [Password Generator Preview](#full-preview)
 - [Credits](#credits)
 
 ## Features
@@ -43,7 +43,7 @@ This application is designed to help users create a strong password that they ca
 - ### **CSS**
 - ### **JavaScript**
 
-## Home page preview
+## Password Generator Preview
 
 ![Image of the password generator itself, with a randomly generator password displayed.](./assets/images/password-generator.png "Password generator preview")
 
